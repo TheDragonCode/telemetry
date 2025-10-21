@@ -1,0 +1,16 @@
+.cursor/
+.idea/
+.junie/
+.vscode/
+
+vendor/
+
+.cache
+.DS_Store
+
+*.bak
+*.cache
+*.clover
+*.orig
+
+composer.lock
