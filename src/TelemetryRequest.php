@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace DragonCode\Telemetry;
 
+use Closure;
 use Ramsey\Uuid\UuidFactory;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -68,6 +69,15 @@ class TelemetryRequest
         }
 
         return (new UuidFactory)->uuid4()->toString();
+    }
+
+    public function custom(string $header, Closure $callback): static
+    {
+        $value = $this->get($header) ?: $callback($this->getRequest());
+
+        $this->set($header, $value);
+
+        return $this;
     }
 
     public function getRequest(): Request

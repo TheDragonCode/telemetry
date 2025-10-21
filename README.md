@@ -46,6 +46,43 @@ telemetry($request, $user->id);
 telemetry($request);
 ```
 
+### Custom Headers
+
+```php
+use DragonCode\Telemetry\TelemetryHeader;
+use DragonCode\Telemetry\TelemetryRequest;
+use Symfony\Component\HttpFoundation\Request;
+
+/** @var Request $request */
+$request = /* ... */;
+
+$telemetry = new TelemetryRequest($request, new TelemetryHeader);
+
+function telemetry(Request $request, ?int $userId = null): Request
+{
+    return (new TelemetryRequest($request, new TelemetryHeader))
+        ->userId($userId)
+        ->ip()
+        ->trackId()
+        ->custom('Some-Header', fn (Request $request) => 1234
+        ->getRequest();
+}
+```
+
+```php
+$item = telemetry($request);
+
+return $item->headers->get('Some-Header'); // 1234
+```
+
+```php
+$request->headers->set('Some-Header', 'qwerty');
+
+$item = telemetry($request);
+
+return $item->headers->get('Some-Header'); // qwerty
+```
+
 ### Custom Header Names
 
 ```php
