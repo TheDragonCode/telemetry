@@ -13,4 +13,6 @@ vendor/
 *.clover
 *.orig
 
+pint.json
+
 composer.lock
