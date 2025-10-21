@@ -9,6 +9,6 @@ readonly class TelemetryHeader
     public function __construct(
         public string $userId = 'X-Telemetry-User-Id',
         public string $ip = 'X-Telemetry-Ip',
-        public string $trackId = 'X-Telemetry-Track-Id',
+        public string $traceId = 'X-Telemetry-Trace-Id',
     ) {}
 }

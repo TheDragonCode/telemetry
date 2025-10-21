@@ -53,18 +53,18 @@ class TelemetryRequest
         return $this->get('HTTP_X_REAL_IP') ?: $this->request->getClientIp();
     }
 
-    public function trackId(?string $id = null): static
+    public function traceId(?string $id = null): static
     {
-        $id ??= $this->getTrackId();
+        $id ??= $this->getTraceId();
 
-        $this->set($this->header->trackId, $id);
+        $this->set($this->header->traceId, $id);
 
         return $this;
     }
 
-    public function getTrackId(): string
+    public function getTraceId(): string
     {
-        if ($id = $this->get($this->header->trackId)) {
+        if ($id = $this->get($this->header->traceId)) {
             return $id;
         }
 
