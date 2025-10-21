@@ -9,17 +9,17 @@ it('uses default header names', function () {
 
     expect($header->userId)->toBe('X-Telemetry-User-Id')
         ->and($header->ip)->toBe('X-Telemetry-Ip')
-        ->and($header->trackId)->toBe('X-Telemetry-Track-Id');
+        ->and($header->traceId)->toBe('X-Telemetry-Trace-Id');
 });
 
 it('accepts custom header names', function () {
     $header = new TelemetryHeader(
         userId : 'Some-User-Id',
         ip     : 'Some-IP',
-        trackId: 'Some-Track-Id',
+        traceId: 'Some-Trace-Id',
     );
 
     expect($header->userId)->toBe('Some-User-Id')
         ->and($header->ip)->toBe('Some-IP')
-        ->and($header->trackId)->toBe('Some-Track-Id');
+        ->and($header->traceId)->toBe('Some-Trace-Id');
 });

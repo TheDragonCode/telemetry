@@ -35,7 +35,7 @@ function telemetry(Request $request, ?int $userId = null): Request
     return (new TelemetryRequest($request, new TelemetryHeader))
         ->userId($userId)
         ->ip()
-        ->trackId()
+        ->traceId()
         ->getRequest();
 }
 
@@ -63,7 +63,7 @@ function telemetry(Request $request, ?int $userId = null): Request
     return (new TelemetryRequest($request, new TelemetryHeader))
         ->userId($userId)
         ->ip()
-        ->trackId()
+        ->traceId()
         ->custom('Some-Header', fn (Request $request) => 1234
         ->getRequest();
 }
@@ -91,7 +91,7 @@ use DragonCode\Telemetry\TelemetryHeader;
 return new TelemetryHeader(
     userId: 'Some-User-Id',
     ip: 'Some-IP',
-    trackId: 'Some-Track-Id',
+    traceId: 'Some-Trace-Id',
 );
 ```
 
