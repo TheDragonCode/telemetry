@@ -1,6 +1,6 @@
 # 🪢 Telemetry
 
-![the dragon code telemetry](https://preview.dragon-code.pro/the%20dragon%20code/telemetry.svg?brand=php&mode=auto)
+![the dragon code telemetry](https://preview.dragon-code.pro/the%20dragon%20code/telemetry.svg?brand=symfony&mode=auto)
 
 [![Stable Version][badge_stable]][link_packagist]
 [![Total Downloads][badge_downloads]][link_packagist]
