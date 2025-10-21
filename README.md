@@ -39,10 +39,10 @@ function telemetry(Request $request, ?int $userId = null): Request
         ->getRequest();
 }
 
-// Для первого вызова
+// For the first call
 telemetry($request, $user->id);
 
-// Для последующих сервисов
+// For subsequent services
 telemetry($request);
 ```
 
