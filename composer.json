@@ -11,8 +11,8 @@
     ],
     "require": {
         "php": "^8.2",
-        "symfony/http-foundation": "^7.3",
-        "ramsey/uuid": "^4.9"
+        "ramsey/uuid": "^4.9",
+        "symfony/http-foundation": "^7.3"
     },
     "require-dev": {
         "dragon-code/codestyler": "^6.3",
@@ -38,6 +38,12 @@
         }
     },
     "scripts": {
+        "post-update-cmd": [
+            "@php vendor/bin/codestyle pint 8.2 --ansi",
+            "@php vendor/bin/codestyle editorconfig --ansi",
+            "composer normalize --ansi"
+        ],
+        "style": "@php vendor/bin/pint",
         "test": "vendor/bin/pest",
         "test:coverage": "vendor/bin/pest --coverage",
         "test:type": "vendor/bin/pest --type-coverage --compact --min=95"
